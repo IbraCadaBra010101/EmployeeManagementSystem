@@ -1,7 +1,7 @@
 ﻿namespace EmployeeManagement
 {
-    class SortingEmployees
+    class CRUDoperations
     {
-         
+        
     }
 }
