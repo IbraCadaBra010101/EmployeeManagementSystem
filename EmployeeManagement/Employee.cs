@@ -4,36 +4,54 @@ namespace EmployeeManagement
 {
     public class Employee
     {
-        private long IdNumber
+        internal string IdNumber
         {
             get;
             set;
         }
-        private string FirstName
-        {
-            get;
-            set; 
-        }
-        private string LastName
+        internal string FirstName
         {
             get;
             set;
         }
-        private bool IsAdmin = false;
-        private Tuple<string, int, string, int> AddressTuple
+        internal string LastName
+        {
+            get;
+            set;
+        }
+        internal bool IsAdmin
         {
             get;
             set;
         }
 
-        public Employee(long idNumber, string firstName, string lastName,
-            Tuple<string, int, string, int> addressTuple, bool isAdmin )
+        internal string PassWord
+        {
+            get;
+            set;
+        }
+        internal string UserName
+        {
+            get;
+            set;
+        }
+        internal string Address
+        {
+            get;
+            set;
+
+        }
+        public Employee(string idNumber, string firstName, string lastName,
+            string address, bool isAdmin,
+            string password)
         {
             IdNumber = idNumber;
             FirstName = firstName;
             LastName = lastName;
-            AddressTuple = addressTuple;
+            Address = address;
             IsAdmin = isAdmin;
+            PassWord = password;
+            UserName = firstName + lastName;
         }
     }
 }

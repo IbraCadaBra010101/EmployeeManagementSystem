@@ -4,42 +4,42 @@ using Newtonsoft.Json;
 
 namespace EmployeeManagement
 {
-    public class EmployeeDataManagement
+    public static class EmployeeDataManagement
     {
-        private const string TodoStorageFilePath = "todos.json";
+        private const string EmployeeFilePath = "emloyeeData.json";
 
-        public static void WriteDataJson(List<Employee> todoList)
+        public static void WriteDataJson(List<Employee> listOfEmployees)
         {
-            var isFileNotExists = !File.Exists(TodoStorageFilePath);
+            var isFileNotExists = !File.Exists(EmployeeFilePath);
             if (isFileNotExists)
             {
-                File.Create(TodoStorageFilePath);
+                File.Create(EmployeeFilePath);
             }
             var isJsonFileEmpty = JsonConvert.DeserializeObject<List<Employee>>(
-                File.ReadAllText(TodoStorageFilePath)) == null;
+                File.ReadAllText(EmployeeFilePath)) == null;
             if (isJsonFileEmpty)
             {
-                var todoJson = JsonConvert.SerializeObject(todoList, Formatting.Indented);
-                File.WriteAllText(TodoStorageFilePath, todoJson);
+                var todoJson = JsonConvert.SerializeObject(listOfEmployees, Formatting.Indented);
+                File.WriteAllText(EmployeeFilePath, todoJson);
             }
             else
             {
-                var existingTodoList = JsonConvert.DeserializeObject<List<Employee>>(File.ReadAllText(TodoStorageFilePath));
-                todoList.AddRange(existingTodoList);
-                var todoJson = JsonConvert.SerializeObject(todoList, formatting: Formatting.Indented);
-                File.WriteAllText(TodoStorageFilePath, todoJson);
+                var existingTodoList = JsonConvert.DeserializeObject<List<Employee>>(File.ReadAllText(EmployeeFilePath));
+                listOfEmployees.AddRange(existingTodoList);
+                var todoJson = JsonConvert.SerializeObject(listOfEmployees, formatting: Formatting.Indented);
+                File.WriteAllText(EmployeeFilePath, todoJson);
             }
         }
 
-        public static void OverWriteCurrentDataJson(List<Employee> todoList)
+        public static void OverWriteCurrentDataJson(List<Employee> listOfEmployees)
         {
-            var todoJson = JsonConvert.SerializeObject(todoList, Formatting.Indented);
-            File.WriteAllText(TodoStorageFilePath, todoJson);
+            var listOfEmployeesJson = JsonConvert.SerializeObject(listOfEmployees, Formatting.Indented);
+            File.WriteAllText(EmployeeFilePath, listOfEmployeesJson);
         }
         public static List<Employee> ReadData()
         {
-            var existingTodoList = JsonConvert.DeserializeObject<List<Employee>>(File.ReadAllText(TodoStorageFilePath));
-            return existingTodoList;
+            var currentListOfEmployees = JsonConvert.DeserializeObject<List<Employee>>(File.ReadAllText(EmployeeFilePath));
+            return currentListOfEmployees;
         }
     }
 }
