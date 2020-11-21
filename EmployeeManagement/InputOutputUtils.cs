@@ -16,7 +16,8 @@ namespace EmployeeManagement
         // task description prompt and error prompt 
         private const string PromptUrgency = "Please enter a number from 1 to 10 to describe the the urgency of this task..";
         private const string PromptUrgencyError = "INPUT ERROR: You must enter a valid number between from 1 to 10!";
-        // edit
+        private const string PromptNoSavedEmployees = "There is no employee data being stored at the moment";
+        // edit  
         public const string PromptEditEmployee = "Enter a  number for the employee you would like to edit!";
         public const string PromptWhichDetailInEmployeeToEdit = "Enter the number for the detail you would like to edit in this task\n 1. Task description 2. Urgency rating 3. Completed 4. Assigned to";
         // which detail to edit 

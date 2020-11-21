@@ -25,13 +25,13 @@ namespace EmployeeManagement
         public const string PromptAddAnotherTodo = "Would you like to add another contact? Answer with yes or no!";
         public const string PromptRepeatErrorMessage = "ERROR You can only answer with yes or no!";
         // delete task 
-        public const string PromptDeleteTask = "Enter the task number for the task you would like to delete!";
+        public const string PromptDeleteEmployee = "Enter the number for the employee you would like to delete!";
         public const string PromptErrorTaskNumber = "ERROR Enter a valid number!";
         // delete one more task   
         public const string PromptDeleteAnotherTodo = "Would you like to delete another contact? Answer with yes or no!";
         // edit
         public const string PromptEditTask = "Enter the task number for the task you would like to edit!";
-        public const string PromptEditAnotherEmployee = "Would you like to edit another contact? Answer with yes or no!";
+        public const string PromptEditAnotherEmployee = "Would you like to edit another employee? Answer with yes or no!";
         public const string PromptWhichDetailInTodoToEdit = "Enter the number for the detail you would like to edit in this task\n 1. Task description 2. Urgency rating 3. Completed 4. Assigned to";
         public const string PromptWhichDetailInTodoToEditError = "Error: Enter a valid number for the detail you would like to edit!\n1. Task description 2. Urgency rating 3. Completed";
 
