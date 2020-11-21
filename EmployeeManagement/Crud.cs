@@ -4,6 +4,7 @@ using static EmployeeManagement.EmployeeDataManagement;
 using static EmployeeManagement.InputOutputUtils;
 using static EmployeeManagement.ValidationUtils;
 using static EmployeeManagement.Login;
+using static EmployeeManagement.InputOutputMessages;
 
 namespace EmployeeManagement
 {
@@ -25,7 +26,7 @@ namespace EmployeeManagement
                 PromptUser(PromptEditEmployee);
                 var editEmployeeAtIndex = UserInput();
                 var editThisEmployee = listOfEmployees[ValidateIsValidNumber(editEmployeeAtIndex, listOfEmployees) - 1];
-                PrintSelectionConfirmation(editThisEmployee, PromptConfirmChosenEditableEmployee);
+                PrintSelectionConfirmation(editThisEmployee, PromptConfirmChosenEditTask);
                 PromptUser(PromptWhichDetailInEmployeeToEdit);
                 var validDetailNumber = ValidateDetailNumber();
                 switch (validDetailNumber) 
@@ -54,53 +55,55 @@ namespace EmployeeManagement
         internal static void Delete()
         {
 
-            var todoList = ReadData();
-            if (todoList.Count <= 0)
+            var listOfEmployees = ReadData();
+            if (listOfEmployees.Count <= 0)
             {
-                PromptUser("No saved contacts");
+                PromptUser(PromptNoSavedEmployees);
             }
             else
             {
                 Print();
-                var userWantsToDeleteMoreTasks = true;
-                while (userWantsToDeleteMoreTasks && todoList.Count > 0)
+                var deleteMoreEmployees = true;
+                while (deleteMoreEmployees && listOfEmployees.Count > 0)
                 {
-                    PromptUser(PromptDeleteTask);
-                    var deleteThisTaskUserInput = UserInput();
-                    var deletedTask = todoList[ValidateIsValidNumber(deleteThisTaskUserInput, todoList) - 1];
-                    todoList.Remove(deletedTask);
+                    PromptUser(PromptDeleteEmployee);
+                    var deleteEmployeeAtIndex = UserInput();
+                    var deleteThisEmployee = listOfEmployees[ValidateIsValidNumber(deleteEmployeeAtIndex, listOfEmployees) - 1];
+                    listOfEmployees.Remove(deleteThisEmployee);
                     ClearConsole();
-                    OverWriteCurrentDataJson(todoList);
+                    OverWriteCurrentDataJson(listOfEmployees);
                     Print();
-                    PrintSelectionConfirmation(deletedTask, PromptWasDeleted);
-                    if (todoList.Count <= 0)
+                    PrintSelectionConfirmation(deleteThisEmployee, PromptWasDeleted);
+                    if (listOfEmployees.Count <= 0)
                     {
                         PromptUser("All contacts were deleted");
                         break;
                     };
                     var stopOrRepeat = RepeatOneMoreTime(PromptDeleteAnotherTodo,
                         PromptRepeatErrorMessage, Yes, No);
-                    userWantsToDeleteMoreTasks = stopOrRepeat;
+                    deleteMoreEmployees = stopOrRepeat;
                 }
             }
         }
         internal static void Add()
         {
-            var userWantsToAddMoreTasks = true;
-            var todoList = new List<Employee>();
-            while (userWantsToAddMoreTasks)
+            var addMoreEmployees = true;
+            var listOfEmployees = new List<Employee>();
+            while (addMoreEmployees)
             {
-                var taskDescription = ValidateText();
-                var urgencyRating = int.Parse(ValidateUrgency());
-                var assignTo = AssignTaskTo();
-                var task = new Employee(taskDescription, urgencyRating, false, assignTo);
-                todoList.Add(task);
+                var idNumber = GenerateNewIdNumber();
+                var firstName = ValidateText();
+                var lastName = ValidateText();
+                var address = ValidateText();
+                var passWord = GenerateNumericPassword();
+                var task = new Employee(idNumber, firstName, lastName, address,false, passWord);
+                listOfEmployees.Add(task);
                 var stopOrRepeat = RepeatOneMoreTime(PromptAddAnotherTodo,
                     PromptRepeatErrorMessage, Yes, No);
-                userWantsToAddMoreTasks = stopOrRepeat;
+                addMoreEmployees = stopOrRepeat;
             }
             ClearConsole();
-            WriteDataJson(todoList);
+            WriteDataJson(listOfEmployees);
             Print();
         }
     }
