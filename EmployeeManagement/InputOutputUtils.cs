@@ -1,27 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using static EmployeeManagement.InputOutputMessages;
 namespace EmployeeManagement
 {
     public static class InputOutputUtils
     {
-        // menu 
-        public const string PromptMenuOptions = "Select from 1.Add   2.Edit   3.Delete   4.Print   5: Print ongoing tasks  6: Print completed tasks 7: Clear screen  8: Quit ";
-        public const string MenuInputError = "Error: enter a valid number from 1 to 7 to select an option!";
-        // task description prompt and error prompt 
-        private const string PromptTask = "Please describe the task..";
-        private const string PromptValidationError = "INPUT ERROR: Text must be alphabetical characters only and can not be empty!";
-        // urgency prompt and error prompt 
-        // task description prompt and error prompt 
-        private const string PromptUrgency = "Please enter a number from 1 to 10 to describe the the urgency of this task..";
-        private const string PromptUrgencyError = "INPUT ERROR: You must enter a valid number between from 1 to 10!";
-        private const string PromptNoSavedEmployees = "There is no employee data being stored at the moment";
-        // edit  
-        public const string PromptEditEmployee = "Enter a  number for the employee you would like to edit!";
-        public const string PromptWhichDetailInEmployeeToEdit = "Enter the number for the detail you would like to edit in this task\n 1. Task description 2. Urgency rating 3. Completed 4. Assigned to";
-        // which detail to edit 
-        public const string PromptConfirmChosenEditableEmployee = "You chose the following employee to edit:";
+       
 
  
         public static readonly List<string> MessageList = new List<string>()
@@ -41,7 +26,9 @@ namespace EmployeeManagement
             const string frameUpperString = "╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗";
             const string frameLowerString = "╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝";
             PromptUser(appTitle);
-            foreach (var todoContent in listOEmployees.Select((employee, index) => $"First name: {employee.FirstName} Last name: {employee.LastName} Address: {employee.AddressTuple}"))
+            foreach (var todoContent in listOEmployees.Select((employee, index) =>
+                $"First name: {employee.FirstName} Last name: {employee.LastName} Address: {employee.Address}" +
+                $" ID: {employee.IdNumber}"))
             {
                 PromptUser(frameUpperString);
                 PromptUser(todoContent);
@@ -87,5 +74,6 @@ namespace EmployeeManagement
             }
             return int.Parse(operationInput);
         }
+
     }
 }

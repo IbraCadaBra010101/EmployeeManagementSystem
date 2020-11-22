@@ -43,7 +43,7 @@ namespace EmployeeManagement
         }
         public Employee(string idNumber, string firstName, string lastName,
             string address, bool isAdmin,
-            string password)
+            string password, string userName)
         {
             IdNumber = idNumber;
             FirstName = firstName;
@@ -51,7 +51,7 @@ namespace EmployeeManagement
             Address = address;
             IsAdmin = isAdmin;
             PassWord = password;
-            UserName = firstName + lastName;
+            UserName = userName;
         }
     }
 }

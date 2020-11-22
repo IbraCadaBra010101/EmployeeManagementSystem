@@ -23,9 +23,7 @@ namespace EmployeeManagement
             while (editMoreEmployees && listOfEmployees.Count > 0)
             {
                 Print();
-                PromptUser(PromptEditEmployee);
-                var editEmployeeAtIndex = UserInput();
-                var editThisEmployee = listOfEmployees[ValidateIsValidNumber(editEmployeeAtIndex, listOfEmployees) - 1];
+                var editThisEmployee = ChooseWhichEmployee(listOfEmployees, PromptEditEmployee);
                 PrintSelectionConfirmation(editThisEmployee, PromptConfirmChosenEditTask);
                 PromptUser(PromptWhichDetailInEmployeeToEdit);
                 var validDetailNumber = ValidateDetailNumber();
@@ -67,8 +65,7 @@ namespace EmployeeManagement
                 while (deleteMoreEmployees && listOfEmployees.Count > 0)
                 {
                     PromptUser(PromptDeleteEmployee);
-                    var deleteEmployeeAtIndex = UserInput();
-                    var deleteThisEmployee = listOfEmployees[ValidateIsValidNumber(deleteEmployeeAtIndex, listOfEmployees) - 1];
+                    var deleteThisEmployee = ChooseWhichEmployee(listOfEmployees, PromptEditEmployee);
                     listOfEmployees.Remove(deleteThisEmployee);
                     ClearConsole();
                     OverWriteCurrentDataJson(listOfEmployees);
@@ -96,9 +93,9 @@ namespace EmployeeManagement
                 var lastName = ValidateText();
                 var address = ValidateText();
                 var passWord = GenerateNumericPassword();
-                var task = new Employee(idNumber, firstName, lastName, address,false, passWord);
+                var task = new Employee(idNumber, firstName, lastName, address,false, passWord, firstName + lastName);
                 listOfEmployees.Add(task);
-                var stopOrRepeat = RepeatOneMoreTime(PromptAddAnotherTodo,
+                var stopOrRepeat = RepeatOneMoreTime(PromptAddAnotherEmployee,
                     PromptRepeatErrorMessage, Yes, No);
                 addMoreEmployees = stopOrRepeat;
             }
