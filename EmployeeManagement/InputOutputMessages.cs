@@ -2,6 +2,20 @@
 {
     public class InputOutputMessages
     {
+
+        // edit messages 
+        public const string PromptNewFirstName = "Enter the new first name!";
+        public const string PromptNewFirstNameError = "Error, input was not valid!\nEnter the new first name!";
+
+        public const string PromptNewLastName = "Enter the new name!";
+        public const string PromptNewLastNameError = "Error, input was not valid!\nEnter the new last name!";
+
+
+        public const string PromptNewAddress = "Enter the new address!";
+        public const string PromptNewAddressError = "Error, input was not valid!\nEnter the new address!";
+
+        public const string PromptMakeAdmin = "Enter true to make user admin or false to limit access!";
+        public const string PromptMakeAdminError = "Error, input was not valid!\nMust be true or false!";
         // menu 
         public const string PromptMenuOptions = "Select from  1.Add   2.Edit   3.Delete  4.Print  5:Clear screen  6:Quit ";
         public const string MenuInputError = "Error: enter a valid number from 1 to 6 to select an option!";
@@ -26,13 +40,13 @@
         public const string PromptDeleteAnotherTodo = "Would you like to delete another contact? Answer with yes or no!";
         // edit 
         public const string PromptNoSavedEmployees = "No stored employees were found!";
-         
-        public const string PromptEditEmployee= "Enter the number of employee you would like to edit!";
+
+        public const string PromptEditEmployee = "Enter the number of employee you would like to edit!";
         public const string PromptEditAnotherEmployee = "Would you like to edit another employee? Answer with yes or no!";
         public const string PromptWhichDetailInEmployeeToEdit = "Enter the number for the detail you would like to edit for this employee\n 1. First name 2. Last name 3. Address 4. ID number";
         public const string PromptWhichDetailInTodoToEditError = "Error: Enter a valid number for the detail you would like to edit!\n1. Task description 2. Urgency rating 3. Completed";
 
-        public const string PromptEditCompletionError = "Error\nEnter true for completed and false for not completed!";
+        public const string PromptDetermineIfAdminInputError = "Error\nEnter true to make this user admin or false to make employee!";
         // which detail to edit 
         public const string PromptConfirmChosenEditTask = "You chose the following employee to edit:";
 

@@ -27,13 +27,13 @@ namespace EmployeeManagement
             }
             return int.Parse(validateIfNumber);
         }
-        internal static string ValidateText()
+        internal static string ValidateText( string message, string errorMessage)
         {
-            PromptUser(PromptTask);
+            PromptUser(message);
             var taskDescriptionInput = UserInput();
             while (string.IsNullOrWhiteSpace(taskDescriptionInput) || int.TryParse(taskDescriptionInput, out _))
             {
-                PromptUser(PromptValidationError);
+                PromptUser(errorMessage);
                 taskDescriptionInput = UserInput();
             }
             return taskDescriptionInput;
@@ -68,6 +68,16 @@ namespace EmployeeManagement
             var editThisEmployee = employees[ValidateIsValidNumber(editEmployeeAtIndex, employees) - 1];
             return editThisEmployee;
         }
-
+        internal static bool ValidateCompleteIsBool(string message, string errorMessage)
+        {
+            PromptUser(message);
+            var userInput = UserInput(); 
+            while (string.IsNullOrWhiteSpace(userInput) || !bool.TryParse(userInput, out _))
+            {
+                PromptUser(errorMessage);
+                userInput = Console.ReadLine();
+            }
+            return bool.Parse(userInput);
+        }
     }
 }

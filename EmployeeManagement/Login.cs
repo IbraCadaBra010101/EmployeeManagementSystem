@@ -6,6 +6,7 @@ using System.Text;
 using static EmployeeManagement.CrudOperationsController;
 using static EmployeeManagement.InputOutputUtils;
 using static EmployeeManagement.ValidationUtils;
+using static EmployeeManagement.InputOutputMessages;
 namespace EmployeeManagement
 {
     class Program
@@ -41,7 +42,7 @@ namespace EmployeeManagement
 
             var passWordInput = Console.ReadLine();
             PromptUser(EnterUsername);
-            var userNameInput = Console.ReadLine();                
+            var userNameInput = Console.ReadLine();
             PromptUser(EnterPassword);
 
             while (runForOneMoreTry)
@@ -57,9 +58,9 @@ namespace EmployeeManagement
                     else
                     {
                         runForOneMoreTry = RepeatOneMoreTime(WrongLogin, InputError, Yes, No);
-                         passWordInput = Console.ReadLine();
+                        passWordInput = Console.ReadLine();
                         PromptUser(EnterUsername);
-                         userNameInput = Console.ReadLine();
+                        userNameInput = Console.ReadLine();
                         PromptUser(EnterPassword);
                     }
                 }
@@ -71,7 +72,7 @@ namespace EmployeeManagement
         {
             if (employee.IsAdmin)
             {
-              ControllerMenu();
+                ControllerMenu();
             }
             else
             {
@@ -81,8 +82,9 @@ namespace EmployeeManagement
 
         internal static string GenerateNewIdNumber()
         {
-             var guidObj = new Guid();
-             return guidObj.ToString();
-        } 
+            var guidObj = new Guid();
+            var idNumber = guidObj.ToString();
+            return idNumber;
+        }
     }
 }

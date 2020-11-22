@@ -6,9 +6,9 @@ using static EmployeeManagement.InputOutputMessages;
 namespace EmployeeManagement
 {
 
-    internal static class CrudOperationsController
+    public static class CrudOperationsController
     {
-        public static void ControllerMenu()
+        public static void ControllerMenu(bool makeAdmin) 
         {
             PromptUser(PromptMenuOptions);
             var chooseOperationInput = UserInput();
@@ -18,7 +18,7 @@ namespace EmployeeManagement
                 switch (validNumberOperationInput)
                 {
                     case 1:
-                        Add();
+                        Add(makeAdmin);
                         break;
                     case 2:
                         Edit();

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using static EmployeeManagement.EmployeeDataManagement;
 using static EmployeeManagement.InputOutputUtils;
 using static EmployeeManagement.ValidationUtils;
@@ -11,15 +10,18 @@ namespace EmployeeManagement
    public static class Crud
 
     {
-        internal static void Print()
+        public static void Print()
         {
             var lisOfEmployees = ReadData();
             InputOutputUtils.PrintFormatOnConsole(lisOfEmployees);
         }
-        internal static void Edit()
+        public static void Edit()
         {
             var listOfEmployees = ReadData();
             var editMoreEmployees = true;
+
+   
+
             while (editMoreEmployees && listOfEmployees.Count > 0)
             {
                 Print();
@@ -30,17 +32,19 @@ namespace EmployeeManagement
                 switch (validDetailNumber) 
                 {
                     case 1:
-                        editThisEmployee.FirstName = ValidateText();
+                        editThisEmployee.FirstName = ValidateText(PromptNewFirstName, PromptNewFirstNameError);
                         break;
                     case 2:
-                        editThisEmployee.LastName = ValidateText();
+                        editThisEmployee.LastName = ValidateText(PromptNewLastName, PromptNewLastNameError);
                         break;
                     case 3:
-                        PromptUser(PromptToEditIsComplete);
-                        editThisEmployee.Address = ValidateText();
+                        editThisEmployee.Address = ValidateText(PromptNewAddress, PromptNewAddressError);
                         break;
                     case 4:
-                        editThisEmployee.IdNumber = GenerateNewIdNumber();
+                        editThisEmployee.IsAdmin = ValidateCompleteIsBool(PromptMakeAdmin, PromptMakeAdminError);
+                        break;
+                    case 5:
+                        editThisEmployee.IdNumber = GenerateNewIdNumber(PromptNewIdNumberCreated);
                         break;
                 }
                 OverWriteCurrentDataJson(listOfEmployees);
@@ -50,7 +54,7 @@ namespace EmployeeManagement
                 editMoreEmployees = stopOrRepeat;
             }
         }
-        internal static void Delete()
+        public static void Delete()
         {
 
             var listOfEmployees = ReadData();
@@ -63,38 +67,38 @@ namespace EmployeeManagement
                 Print();
                 var deleteMoreEmployees = true;
                 while (deleteMoreEmployees && listOfEmployees.Count > 0)
-                {
-                    PromptUser(PromptDeleteEmployee);
-                    var deleteThisEmployee = ChooseWhichEmployee(listOfEmployees, PromptEditEmployee);
+                { 
+                    var deleteThisEmployee = ChooseWhichEmployee(listOfEmployees, PromptDeleteEmployee);
                     listOfEmployees.Remove(deleteThisEmployee);
-                    ClearConsole();
+                    ClearConsole(); 
                     OverWriteCurrentDataJson(listOfEmployees);
                     Print();
                     PrintSelectionConfirmation(deleteThisEmployee, PromptWasDeleted);
                     if (listOfEmployees.Count <= 0)
                     {
-                        PromptUser("All contacts were deleted");
+                        PromptUser(PromptAllDeleted);
                         break;
-                    };
+                    }
                     var stopOrRepeat = RepeatOneMoreTime(PromptDeleteAnotherTodo,
                         PromptRepeatErrorMessage, Yes, No);
                     deleteMoreEmployees = stopOrRepeat;
                 }
             }
         }
-        internal static void Add()
+        public static void Add()
         {
             var addMoreEmployees = true;
             var listOfEmployees = new List<Employee>();
             while (addMoreEmployees)
             {
-                var idNumber = GenerateNewIdNumber();
-                var firstName = ValidateText();
-                var lastName = ValidateText();
-                var address = ValidateText();
+                var idNumber = GenerateNewIdNumber(PromptNewIdNumberCreated);
+                var firstName = ValidateText(PromptNewFirstName, PromptNewFirstNameError);
+                var lastName = ValidateText(PromptNewLastName, PromptNewLastNameError);
+                var address = ValidateText(PromptNewAddress, PromptNewAddressError);
                 var passWord = GenerateNumericPassword();
-                var task = new Employee(idNumber, firstName, lastName, address,false, passWord, firstName + lastName);
-                listOfEmployees.Add(task);
+                var isEmployeeAdmin = ValidateCompleteIsBool(PromptMakeAdmin, PromptMakeAdminError);
+                var employee = new Employee(idNumber, firstName, lastName, address, isEmployeeAdmin, passWord, firstName + lastName);
+                listOfEmployees.Add(employee);
                 var stopOrRepeat = RepeatOneMoreTime(PromptAddAnotherEmployee,
                     PromptRepeatErrorMessage, Yes, No);
                 addMoreEmployees = stopOrRepeat;

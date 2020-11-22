@@ -4,38 +4,38 @@ namespace EmployeeManagement
 {
     public class Employee
     {
-        internal string IdNumber
+        public string IdNumber
         {
             get;
             set;
         }
-        internal string FirstName
+        public string FirstName
         {
             get;
             set;
         }
-        internal string LastName
+        public string LastName
         {
             get;
             set;
         }
-        internal bool IsAdmin
+        public bool IsAdmin
         {
             get;
             set;
         }
 
-        internal string PassWord
+        public string PassWord
         {
             get;
             set;
         }
-        internal string UserName
+        public string UserName
         {
             get;
             set;
         }
-        internal string Address
+        public string Address
         {
             get;
             set;
