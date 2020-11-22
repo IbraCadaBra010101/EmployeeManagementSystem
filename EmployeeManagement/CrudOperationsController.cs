@@ -8,7 +8,7 @@ namespace EmployeeManagement
 
     public static class CrudOperationsController
     {
-        public static void ControllerMenu(bool makeAdmin) 
+        public static void ControllerMenu()
         {
             PromptUser(PromptMenuOptions);
             var chooseOperationInput = UserInput();
@@ -18,7 +18,7 @@ namespace EmployeeManagement
                 switch (validNumberOperationInput)
                 {
                     case 1:
-                        Add(makeAdmin);
+                        Add();
                         break;
                     case 2:
                         Edit();
@@ -30,7 +30,7 @@ namespace EmployeeManagement
                         Print();
                         break;
                     case 5:
-                        Console.Clear();
+                        ClearConsole();
                         break;
                     default:
                         return;

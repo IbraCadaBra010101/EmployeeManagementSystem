@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using static EmployeeManagement.CrudOperationsController;
 using static EmployeeManagement.InputOutputUtils;
@@ -9,13 +10,8 @@ using static EmployeeManagement.ValidationUtils;
 using static EmployeeManagement.InputOutputMessages;
 namespace EmployeeManagement
 {
-    class Program
-    {
-        public static void Main()
-        {
-        }
-    }
-    internal static class Login
+
+    public static class Login
     {
         private const string EmployeeDetailsMessage = "Your Employee Details";
         private const string WrongLogin = "Login failed, wrong password or/and username!";
@@ -36,7 +32,7 @@ namespace EmployeeManagement
             }
             return stringBuilder.ToString();
         }
-        public static int ValidatePassword(List<Employee> listOfEmployees)
+        public static void ValidatePassword(List<Employee> listOfEmployees)
         {
             var runForOneMoreTry = true;
 
@@ -44,7 +40,7 @@ namespace EmployeeManagement
             PromptUser(EnterUsername);
             var userNameInput = Console.ReadLine();
             PromptUser(EnterPassword);
-
+            if (listOfEmployees.Count <= 1) return;
             while (runForOneMoreTry)
             {
                 foreach (var employee in listOfEmployees)
@@ -65,7 +61,6 @@ namespace EmployeeManagement
                     }
                 }
             }
-            return 0;
         }
 
         internal static void DetermineUserAccessLevel(Employee employee)
@@ -80,10 +75,11 @@ namespace EmployeeManagement
             }
         }
 
-        internal static string GenerateNewIdNumber()
+        internal static string GenerateNewIdNumber(string message)
         {
             var guidObj = new Guid();
             var idNumber = guidObj.ToString();
+            PromptUser(message + idNumber);
             return idNumber;
         }
     }
