@@ -29,41 +29,44 @@ namespace EmployeeManagement
         public static void ValidatePassword(string path)
         {
             var listOfEmployees = ReadData(path);
-
+            var run = true;
+            var messageIndex = 0;
             if (listOfEmployees.Count < 1)
             {
                 ControllerMenu(path);
             }
             else
             {
-                PromptUser(EnterUsername);
-                var userNameInput = Console.ReadLine();
-
-                PromptUser(EnterPassword);
-                var passWordInput = Console.ReadLine();
-                var continueRunning = true;
-                var index = 0;
-                while (continueRunning)
+                while (run)
                 {
-                    if ($"{listOfEmployees[index].FirstName + listOfEmployees[index].LastName}" == userNameInput
-                        && listOfEmployees[index].PassWord == passWordInput)
+
+                    if (messageIndex >  0)
                     {
-                        PromptUser(PromptConfirmLoggedIn);
-                        DetermineUserAccessLevel(listOfEmployees[index], path);
+                        PromptUser(WrongLogin);
                     }
-                    else if ($"{listOfEmployees[index].FirstName + listOfEmployees[index].LastName}" != userNameInput
-                             || listOfEmployees[index].PassWord == passWordInput)
+                    PromptUser(EnterUsername);
+                    var userNameInput = Console.ReadLine();
+
+                    PromptUser(EnterPassword);
+                    var passWordInput = Console.ReadLine();
+                    if (userNameInput == "quit" || passWordInput == "quit")
                     {
-                        continueRunning = RepeatOneMoreTime(WrongLogin, InputError, Yes, No);
-                        Console.WriteLine(continueRunning);
-                        if (continueRunning == false) break;
-                        PromptUser(EnterUsername);
-                        userNameInput = Console.ReadLine();
-                        PromptUser(EnterPassword);
-                        passWordInput = Console.ReadLine();
+                         run = false;
                     }
-                    index++;
+                    for (int index = 0; index < listOfEmployees.Count; index++)
+                    {
+                        if ($"{listOfEmployees[index].FirstName + listOfEmployees[index].LastName}" == userNameInput
+                            && listOfEmployees[index].PassWord == passWordInput)
+                        {
+                            PromptUser(PromptConfirmLoggedIn);
+                            DetermineUserAccessLevel(listOfEmployees[index], path);
+                            run = false;
+                        }
+                    }
+
+                    messageIndex++;
                 }
+       
             }
         }
         internal static void DetermineUserAccessLevel(Employee employee, string path)

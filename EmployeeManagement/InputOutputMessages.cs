@@ -9,7 +9,7 @@
         public const string PromptNewFirstName = "Enter the new first name!";
         public const string PromptNewFirstNameError = "Error, input was not valid!\nEnter the new first name!";
 
-        public const string PromptNewLastName = "Enter the new name!";
+        public const string PromptNewLastName = "Enter the new last name!";
         public const string PromptNewLastNameError = "Error, input was not valid!\nEnter the new last name!";
 
 
@@ -50,7 +50,7 @@
         public const string PromptWasDeleted = "Successfully deleted";
         public const string PromptAllDeleted = "All contacts were deleted";
         public const string EmployeeDetailsMessage = "Your Employee Details";
-        public const string WrongLogin = "Login failed, Write yes to try again or no to quit!";
+        public const string WrongLogin = "Login failed, try again!";
         public const string InputError = "Please answer with yes or no only!";
         public const string EnterPassword = "Enter your password!";
         public const string EnterUsername = "Enter your username!";

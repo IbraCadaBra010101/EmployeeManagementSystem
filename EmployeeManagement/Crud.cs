@@ -84,7 +84,7 @@ namespace EmployeeManagement
         public static void Add(string path)
         {
             var addMoreEmployees = true;
-            var listOfEmployees = new List<Employee>();
+            var listOfEmployees = new List<Employee>(); 
             while (addMoreEmployees)
             {
                 var idNumber = GenerateNewIdNumber(PromptNewIdNumberCreated);
