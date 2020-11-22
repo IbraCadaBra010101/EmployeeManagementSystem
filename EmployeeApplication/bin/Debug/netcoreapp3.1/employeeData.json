@@ -1,0 +1,20 @@
+[
+  {
+    "IdNumber": "00000000-0000-0000-0000-000000000000",
+    "FirstName": "Jim",
+    "LastName": "Jones",
+    "IsAdmin": true,
+    "PassWord": "7662",
+    "UserName": "JimJones",
+    "Address": "fake street 123"
+  },
+  {
+    "IdNumber": "00000000-0000-0000-0000-000000000000",
+    "FirstName": "Alan",
+    "LastName": "Shearer",
+    "IsAdmin": true,
+    "PassWord": "4085",
+    "UserName": "AlanShearer",
+    "Address": "england 123"
+  }
+]

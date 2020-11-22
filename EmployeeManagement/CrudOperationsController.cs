@@ -5,10 +5,9 @@ using static EmployeeManagement.Crud;
 using static EmployeeManagement.InputOutputMessages;
 namespace EmployeeManagement
 {
-
     public static class CrudOperationsController
     {
-        public static void ControllerMenu()
+        public static void ControllerMenu(string path)
         {
             PromptUser(PromptMenuOptions);
             var chooseOperationInput = UserInput();
@@ -18,16 +17,16 @@ namespace EmployeeManagement
                 switch (validNumberOperationInput)
                 {
                     case 1:
-                        Add();
+                        Add(path);
                         break;
                     case 2:
-                        Edit();
+                        Edit(path);
                         break;
                     case 3:
-                        Delete();
+                        Delete(path);
                         break;
                     case 4:
-                        Print();
+                        Print(path);
                         break;
                     case 5:
                         ClearConsole();

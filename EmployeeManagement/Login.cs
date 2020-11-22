@@ -2,23 +2,17 @@
 
 using System;
 using System.Collections.Generic;
-using System.Reflection.Metadata.Ecma335;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using static EmployeeManagement.CrudOperationsController;
 using static EmployeeManagement.InputOutputUtils;
 using static EmployeeManagement.ValidationUtils;
 using static EmployeeManagement.InputOutputMessages;
+using static EmployeeManagement.EmployeeDataManagement;
 namespace EmployeeManagement
 {
-
     public static class Login
     {
-        private const string EmployeeDetailsMessage = "Your Employee Details";
-        private const string WrongLogin = "Login failed, wrong password or/and username!";
-        private const string InputError = "Answer with either yes/no only!";
-        private const string EnterPassword = "Enter your password!";
-        private const string EnterUsername = "Enter your username!";
-
         internal static string GenerateNumericPassword()
         {
             var allNumbers = new List<int>() { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' };
@@ -32,49 +26,57 @@ namespace EmployeeManagement
             }
             return stringBuilder.ToString();
         }
-        public static void ValidatePassword(List<Employee> listOfEmployees)
+        public static void ValidatePassword(string path)
         {
-            var runForOneMoreTry = true;
+            var listOfEmployees = ReadData(path);
 
-            var passWordInput = Console.ReadLine();
-            PromptUser(EnterUsername);
-            var userNameInput = Console.ReadLine();
-            PromptUser(EnterPassword);
-            if (listOfEmployees.Count <= 1) return;
-            while (runForOneMoreTry)
+            if (listOfEmployees.Count < 1)
             {
-                foreach (var employee in listOfEmployees)
+                ControllerMenu(path);
+            }
+            else
+            {
+                PromptUser(EnterUsername);
+                var userNameInput = Console.ReadLine();
+
+                PromptUser(EnterPassword);
+                var passWordInput = Console.ReadLine();
+                var continueRunning = true;
+                var index = 0;
+                while (continueRunning)
                 {
-                    if ($"{employee.FirstName}{employee.LastName}" == userNameInput
-                        && employee.PassWord == passWordInput)
+                    if ($"{listOfEmployees[index].FirstName + listOfEmployees[index].LastName}" == userNameInput
+                        && listOfEmployees[index].PassWord == passWordInput)
                     {
-                        DetermineUserAccessLevel(employee);
-                        runForOneMoreTry = false;
+                        PromptUser(PromptConfirmLoggedIn);
+                        DetermineUserAccessLevel(listOfEmployees[index], path);
                     }
-                    else
+                    else if ($"{listOfEmployees[index].FirstName + listOfEmployees[index].LastName}" != userNameInput
+                             || listOfEmployees[index].PassWord == passWordInput)
                     {
-                        runForOneMoreTry = RepeatOneMoreTime(WrongLogin, InputError, Yes, No);
-                        passWordInput = Console.ReadLine();
+                        continueRunning = RepeatOneMoreTime(WrongLogin, InputError, Yes, No);
+                        Console.WriteLine(continueRunning);
+                        if (continueRunning == false) break;
                         PromptUser(EnterUsername);
                         userNameInput = Console.ReadLine();
                         PromptUser(EnterPassword);
+                        passWordInput = Console.ReadLine();
                     }
+                    index++;
                 }
             }
         }
-
-        internal static void DetermineUserAccessLevel(Employee employee)
+        internal static void DetermineUserAccessLevel(Employee employee, string path)
         {
             if (employee.IsAdmin)
             {
-                ControllerMenu();
+                ControllerMenu(path);
             }
             else
             {
                 PrintSelectionConfirmation(employee, EmployeeDetailsMessage);
             }
         }
-
         internal static string GenerateNewIdNumber(string message)
         {
             var guidObj = new Guid();

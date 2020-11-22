@@ -6,43 +6,41 @@ namespace EmployeeManagement
 {
     public static class EmployeeDataManagement
     {
-        private const string EmployeeFilePath = "emloyeeData.json";
-
-        public static void WriteDataJson(List<Employee> listOfEmployees)
+        public static void WriteDataJson(List<Employee> listOfEmployees, string path)
         {
-            var isFileNotExists = !File.Exists(EmployeeFilePath);
+            var isFileNotExists = !File.Exists(path);
             if (isFileNotExists)
             {
-                File.Create(EmployeeFilePath);
+                File.Create(path);
             }
             var isJsonFileEmpty = JsonConvert.DeserializeObject<List<Employee>>(
-                File.ReadAllText(EmployeeFilePath)) == null;
+                File.ReadAllText(path)) == null;
             if (isJsonFileEmpty)
             {
                 var todoJson = JsonConvert.SerializeObject(listOfEmployees, Formatting.Indented);
-                File.WriteAllText(EmployeeFilePath, todoJson);
+                File.WriteAllText(path, todoJson);
             }
             else
             {
-                var existingTodoList = JsonConvert.DeserializeObject<List<Employee>>(File.ReadAllText(EmployeeFilePath));
-                listOfEmployees.AddRange(existingTodoList);
+                var existingEmployees = JsonConvert.DeserializeObject<List<Employee>>(File.ReadAllText(path));
+                listOfEmployees.AddRange(existingEmployees);
                 var todoJson = JsonConvert.SerializeObject(listOfEmployees, formatting: Formatting.Indented);
-                File.WriteAllText(EmployeeFilePath, todoJson);
+                File.WriteAllText(path, todoJson);
             }
         }
-
-        public static void OverWriteCurrentDataJson(List<Employee> listOfEmployees)
-        {
+        public static void OverWriteCurrentDataJson(List<Employee> listOfEmployees, string path)
+        { 
             var listOfEmployeesJson = JsonConvert.SerializeObject(listOfEmployees, Formatting.Indented);
-            File.WriteAllText(EmployeeFilePath, listOfEmployeesJson);
+            File.WriteAllText(path, listOfEmployeesJson);
         }
-        public static List<Employee> ReadData()
+        public static List<Employee> ReadData(string path)
         {
-            var currentListOfEmployees = JsonConvert.DeserializeObject<List<Employee>>(File.ReadAllText(EmployeeFilePath));
+            var currentListOfEmployees = JsonConvert.DeserializeObject<List<Employee>>(File.ReadAllText(path));
             return currentListOfEmployees;
         }
     }
 }
+
 
 
 

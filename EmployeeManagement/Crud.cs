@@ -7,29 +7,26 @@ using static EmployeeManagement.InputOutputMessages;
 
 namespace EmployeeManagement
 {
-   public static class Crud
-
+    public static class Crud
     {
-        public static void Print()
+        public static void Print(string path)
         {
-            var lisOfEmployees = ReadData();
+            var lisOfEmployees = ReadData(path);
             InputOutputUtils.PrintFormatOnConsole(lisOfEmployees);
         }
-        public static void Edit()
+        public static void Edit(string path)
         {
-            var listOfEmployees = ReadData();
+            var listOfEmployees = ReadData(path);
             var editMoreEmployees = true;
-
-   
 
             while (editMoreEmployees && listOfEmployees.Count > 0)
             {
-                Print();
+                Print(path);
                 var editThisEmployee = ChooseWhichEmployee(listOfEmployees, PromptEditEmployee);
                 PrintSelectionConfirmation(editThisEmployee, PromptConfirmChosenEditTask);
                 PromptUser(PromptWhichDetailInEmployeeToEdit);
                 var validDetailNumber = ValidateDetailNumber();
-                switch (validDetailNumber) 
+                switch (validDetailNumber)
                 {
                     case 1:
                         editThisEmployee.FirstName = ValidateText(PromptNewFirstName, PromptNewFirstNameError);
@@ -47,32 +44,31 @@ namespace EmployeeManagement
                         editThisEmployee.IdNumber = GenerateNewIdNumber(PromptNewIdNumberCreated);
                         break;
                 }
-                OverWriteCurrentDataJson(listOfEmployees);
-                Print();
+                OverWriteCurrentDataJson(listOfEmployees, path);
+                Print(path);
                 var stopOrRepeat = RepeatOneMoreTime(PromptEditAnotherEmployee,
                     PromptRepeatErrorMessage, Yes, No);
                 editMoreEmployees = stopOrRepeat;
             }
         }
-        public static void Delete()
+        public static void Delete(string path)
         {
-
-            var listOfEmployees = ReadData();
+            var listOfEmployees = ReadData(path);
             if (listOfEmployees.Count <= 0)
             {
                 PromptUser(PromptNoSavedEmployees);
             }
             else
             {
-                Print();
+                Print(path);
                 var deleteMoreEmployees = true;
                 while (deleteMoreEmployees && listOfEmployees.Count > 0)
-                { 
+                {
                     var deleteThisEmployee = ChooseWhichEmployee(listOfEmployees, PromptDeleteEmployee);
                     listOfEmployees.Remove(deleteThisEmployee);
-                    ClearConsole(); 
-                    OverWriteCurrentDataJson(listOfEmployees);
-                    Print();
+                    ClearConsole();
+                    OverWriteCurrentDataJson(listOfEmployees, path);
+                    Print(path);
                     PrintSelectionConfirmation(deleteThisEmployee, PromptWasDeleted);
                     if (listOfEmployees.Count <= 0)
                     {
@@ -85,7 +81,7 @@ namespace EmployeeManagement
                 }
             }
         }
-        public static void Add()
+        public static void Add(string path)
         {
             var addMoreEmployees = true;
             var listOfEmployees = new List<Employee>();
@@ -104,8 +100,8 @@ namespace EmployeeManagement
                 addMoreEmployees = stopOrRepeat;
             }
             ClearConsole();
-            WriteDataJson(listOfEmployees);
-            Print();
+            WriteDataJson(listOfEmployees, path);
+            Print(path);
         }
     }
 

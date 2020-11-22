@@ -33,7 +33,7 @@
         // delete one more task   
         public const string PromptDeleteAnotherTodo = "Would you like to delete another contact? Answer with yes or no!";
         // edit 
-        public const string PromptNoSavedEmployees = "Error, could not access database!";
+        public const string PromptNoSavedEmployees = "Empty database, Add some employees!!";
 
         public const string PromptEditEmployee = "Enter the number of employee you would like to edit!";
         public const string PromptEditAnotherEmployee = "Would you like to edit another employee? Answer with yes or no!";
@@ -49,6 +49,13 @@
         // was deleted   
         public const string PromptWasDeleted = "Successfully deleted";
         public const string PromptAllDeleted = "All contacts were deleted";
+        public const string EmployeeDetailsMessage = "Your Employee Details";
+        public const string WrongLogin = "Login failed, Write yes to try again or no to quit!";
+        public const string InputError = "Please answer with yes or no only!";
+        public const string EnterPassword = "Enter your password!";
+        public const string EnterUsername = "Enter your username!";
+
+        public const string PromptConfirmLoggedIn = "Logged in as Administrator!";
 
     }
 }

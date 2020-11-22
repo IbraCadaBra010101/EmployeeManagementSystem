@@ -6,23 +6,10 @@ namespace EmployeeManagement
 {
     public static class InputOutputUtils
     {
-       
-
- 
-        public static readonly List<string> MessageList = new List<string>()
-        {
-            PromptTask, PromptValidationError,PromptUrgency,PromptUrgencyError
-        };
-        private enum MessagesEnum
-        {
-            DescribeTask = 0,
-            ErrorTaskDescription = 1,
-            EnterUrgency = 2,
-            ErrorInUrgency = 3,
-        }
+        
         internal static void PrintFormatOnConsole(List<Employee> listOEmployees)
         {
-            const string appTitle = "TODO APPLICATION";
+            const string appTitle = "Employee APPLICATION";
             const string frameUpperString = "╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗";
             const string frameLowerString = "╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝";
             PromptUser(appTitle);
@@ -64,16 +51,5 @@ namespace EmployeeManagement
         {
             Console.Clear();
         }
-        internal static int ControllerMenuInputValidateNumber(string operationInput, int minInput, int maxInput)
-        {
-            while (!int.TryParse(operationInput, out _) || string.IsNullOrWhiteSpace(operationInput) || int.Parse(operationInput) < minInput || int.Parse(operationInput) > maxInput)
-            {
-                PromptUser(PromptMenuOptions);
-                PromptUser(MenuInputError);
-                operationInput = Console.ReadLine();
-            }
-            return int.Parse(operationInput);
-        }
-
     }
 }

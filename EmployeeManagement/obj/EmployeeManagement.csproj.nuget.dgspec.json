@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\46790\\source\\repos\\EmployeeManagement\\EmployeeManagement\\EmployeeManagement.csproj": {}
+    "C:\\Users\\46790\\source\\repos\\EmployeeManagementLibrary\\EmployeeManagement\\EmployeeManagement.csproj": {}
   },
   "projects": {
-    "C:\\Users\\46790\\source\\repos\\EmployeeManagement\\EmployeeManagement\\EmployeeManagement.csproj": {
+    "C:\\Users\\46790\\source\\repos\\EmployeeManagementLibrary\\EmployeeManagement\\EmployeeManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\46790\\source\\repos\\EmployeeManagement\\EmployeeManagement\\EmployeeManagement.csproj",
+        "projectUniqueName": "C:\\Users\\46790\\source\\repos\\EmployeeManagementLibrary\\EmployeeManagement\\EmployeeManagement.csproj",
         "projectName": "EmployeeManagement",
-        "projectPath": "C:\\Users\\46790\\source\\repos\\EmployeeManagement\\EmployeeManagement\\EmployeeManagement.csproj",
+        "projectPath": "C:\\Users\\46790\\source\\repos\\EmployeeManagementLibrary\\EmployeeManagement\\EmployeeManagement.csproj",
         "packagesPath": "C:\\Users\\46790\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\46790\\source\\repos\\EmployeeManagement\\EmployeeManagement\\obj\\",
+        "outputPath": "C:\\Users\\46790\\source\\repos\\EmployeeManagementLibrary\\EmployeeManagement\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\46790\\AppData\\Roaming\\NuGet\\NuGet.Config",
