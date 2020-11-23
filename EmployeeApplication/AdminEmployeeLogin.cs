@@ -2,14 +2,14 @@
 using EmployeeManagement;
 namespace EmployeeApplication
 {
-   public class EmployeeLogin
+   public class AdminEmployeeLogin
     {
         private static void Main()
         {
 
             const string filePath = "employeeData.json";
 
-            Login.ValidatePassword(filePath);
+            Login.ValidatePassword(filePath, true);
 
         }
     }

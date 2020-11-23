@@ -1,0 +1,17 @@
+C:\Users\46790\source\repos\EmployeeManagementLibrary\LimitedEmployee\bin\Debug\netcoreapp3.1\LimitedEmployeeApplication.exe
+C:\Users\46790\source\repos\EmployeeManagementLibrary\LimitedEmployee\bin\Debug\netcoreapp3.1\LimitedEmployeeApplication.deps.json
+C:\Users\46790\source\repos\EmployeeManagementLibrary\LimitedEmployee\bin\Debug\netcoreapp3.1\LimitedEmployeeApplication.runtimeconfig.json
+C:\Users\46790\source\repos\EmployeeManagementLibrary\LimitedEmployee\bin\Debug\netcoreapp3.1\LimitedEmployeeApplication.runtimeconfig.dev.json
+C:\Users\46790\source\repos\EmployeeManagementLibrary\LimitedEmployee\bin\Debug\netcoreapp3.1\LimitedEmployeeApplication.dll
+C:\Users\46790\source\repos\EmployeeManagementLibrary\LimitedEmployee\bin\Debug\netcoreapp3.1\LimitedEmployeeApplication.pdb
+C:\Users\46790\source\repos\EmployeeManagementLibrary\LimitedEmployee\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\46790\source\repos\EmployeeManagementLibrary\LimitedEmployee\bin\Debug\netcoreapp3.1\EmployeeManagement.dll
+C:\Users\46790\source\repos\EmployeeManagementLibrary\LimitedEmployee\bin\Debug\netcoreapp3.1\EmployeeManagement.pdb
+C:\Users\46790\source\repos\EmployeeManagementLibrary\LimitedEmployee\obj\Debug\netcoreapp3.1\LimitedEmployeeApplication.csprojAssemblyReference.cache
+C:\Users\46790\source\repos\EmployeeManagementLibrary\LimitedEmployee\obj\Debug\netcoreapp3.1\LimitedEmployeeApplication.AssemblyInfoInputs.cache
+C:\Users\46790\source\repos\EmployeeManagementLibrary\LimitedEmployee\obj\Debug\netcoreapp3.1\LimitedEmployeeApplication.AssemblyInfo.cs
+C:\Users\46790\source\repos\EmployeeManagementLibrary\LimitedEmployee\obj\Debug\netcoreapp3.1\LimitedEmployeeApplication.csproj.CoreCompileInputs.cache
+C:\Users\46790\source\repos\EmployeeManagementLibrary\LimitedEmployee\obj\Debug\netcoreapp3.1\LimitedEmployeeApplication.csproj.CopyComplete
+C:\Users\46790\source\repos\EmployeeManagementLibrary\LimitedEmployee\obj\Debug\netcoreapp3.1\LimitedEmployeeApplication.dll
+C:\Users\46790\source\repos\EmployeeManagementLibrary\LimitedEmployee\obj\Debug\netcoreapp3.1\LimitedEmployeeApplication.pdb
+C:\Users\46790\source\repos\EmployeeManagementLibrary\LimitedEmployee\obj\Debug\netcoreapp3.1\LimitedEmployeeApplication.genruntimeconfig.cache

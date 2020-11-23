@@ -13,6 +13,8 @@ namespace EmployeeManagement
 {
     public static class Login
     {
+     
+
         internal static string GenerateNumericPassword()
         {
             var allNumbers = new List<int>() { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' };
@@ -26,14 +28,18 @@ namespace EmployeeManagement
             }
             return stringBuilder.ToString();
         }
-        public static void ValidatePassword(string path)
+        public static void ValidatePassword(string path, bool nonAdmin)
         {
             var listOfEmployees = ReadData(path);
             var run = true;
             var messageIndex = 0;
-            if (listOfEmployees.Count < 1)
+            if (listOfEmployees.Count < 1 && nonAdmin ==  false)
             {
                 ControllerMenu(path);
+            }
+            if (listOfEmployees.Count < 1 && nonAdmin)
+            {
+               PromptUser("You are an employee with no admin priviliges, ask the admin to  create an account for you");
             }
             else
             {
@@ -58,8 +64,7 @@ namespace EmployeeManagement
                         if ($"{listOfEmployees[index].FirstName + listOfEmployees[index].LastName}" == userNameInput
                             && listOfEmployees[index].PassWord == passWordInput)
                         {
-                            PromptUser(PromptConfirmLoggedIn);
-                            DetermineUserAccessLevel(listOfEmployees[index], path);
+                            DetermineUserAccessLevel(listOfEmployees[index], path, nonAdmin);
                             run = false;
                         }
                     }
@@ -69,14 +74,16 @@ namespace EmployeeManagement
        
             }
         }
-        internal static void DetermineUserAccessLevel(Employee employee, string path)
+        internal static void DetermineUserAccessLevel(Employee employee, string path, bool nonAdmin)
         {
-            if (employee.IsAdmin)
+            if (employee.IsAdmin && nonAdmin == false)
             {
+                PromptUser(PromptConfirmLoggedInAsAdministrator);
                 ControllerMenu(path);
             }
             else
             {
+                PromptUser(PromptConfirmLoggedInAsEmployee);
                 PrintSelectionConfirmation(employee, EmployeeDetailsMessage);
             }
         }
@@ -84,7 +91,6 @@ namespace EmployeeManagement
         {
             var guidObj = new Guid();
             var idNumber = guidObj.ToString();
-            PromptUser(message + idNumber);
             return idNumber;
         }
     }

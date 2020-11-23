@@ -75,9 +75,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\46790\\source\\repos\\EmployeeManagementLibrary\\EmployeeApplication\\EmployeeApplication.csproj",
-      "projectName": "EmployeeApplication",
-      "projectPath": "C:\\Users\\46790\\source\\repos\\EmployeeManagementLibrary\\EmployeeApplication\\EmployeeApplication.csproj",
+      "projectUniqueName": "C:\\Users\\46790\\source\\repos\\EmployeeManagementLibrary\\EmployeeApplication\\AdminApplication.csproj",
+      "projectName": "AdminApplication",
+      "projectPath": "C:\\Users\\46790\\source\\repos\\EmployeeManagementLibrary\\EmployeeApplication\\AdminApplication.csproj",
       "packagesPath": "C:\\Users\\46790\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\46790\\source\\repos\\EmployeeManagementLibrary\\EmployeeApplication\\obj\\",
       "projectStyle": "PackageReference",

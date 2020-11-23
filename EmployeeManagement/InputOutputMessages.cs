@@ -54,8 +54,9 @@
         public const string InputError = "Please answer with yes or no only!";
         public const string EnterPassword = "Enter your password!";
         public const string EnterUsername = "Enter your username!";
+        public const string PromptConfirmLoggedInAsEmployee = "Logged in as employee";
 
-        public const string PromptConfirmLoggedIn = "Logged in as Administrator!";
+        public const string PromptConfirmLoggedInAsAdministrator = "Logged in as Administrator!";
 
     }
 }
