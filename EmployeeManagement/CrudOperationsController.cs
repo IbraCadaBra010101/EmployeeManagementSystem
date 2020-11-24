@@ -3,11 +3,12 @@ using static EmployeeManagement.InputOutputUtils;
 using static EmployeeManagement.ValidationUtils;
 using static EmployeeManagement.Crud;
 using static EmployeeManagement.InputOutputMessages;
+using static EmployeeManagement.Login;
 namespace EmployeeManagement
 {
     public static class CrudOperationsController
     {
-        public static void ControllerMenu()
+        public static void ControllerMenu(bool isAdmin)
         {
             PromptUser(PromptMenuOptions);
             var chooseOperationInput = UserInput();
@@ -31,6 +32,10 @@ namespace EmployeeManagement
                     case 5:
                         ClearConsole();
                         break;
+                    case 6:
+                        ClearConsole();
+                        ValidatePassword(isAdmin);
+                        break;
                     default:
                         return;
                 }
@@ -39,5 +44,6 @@ namespace EmployeeManagement
                 validNumberOperationInput = ControllerMenuInputValidateNumber(chooseOperationInput);
             }
         }
+
     }
 }

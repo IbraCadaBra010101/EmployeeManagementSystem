@@ -19,7 +19,7 @@
         public const string PromptMakeAdmin = "Enter true to make user admin or false to limit access!";
         public const string PromptMakeAdminError = "Error, input was not valid!\nMust be true or false!";
         // menu 
-        public const string PromptMenuOptions = "Select from  1.Add   2.Edit   3.Delete  4.Print  5:Clear screen  6:Quit ";
+        public const string PromptMenuOptions = "Select from  1.Add   2.Edit   3.Delete  4.Print  5:Clear screen  6: Log out 7: Quit" ;
         public const string MenuInputError = "Error: enter a valid number from 1 to 6 to select an option!";
 
         public const string Yes = "yes";
@@ -65,7 +65,11 @@
             "\nThere must be at least one admin account to manage the application.";
 
         public const string ID_NUMBER_ACCOUNT_MUST_ALWAYS_EXIST = "c4c5d7a0-c1d1-4840-a010-9af95477c9cd";
-      
+
+        public const string PromptEmployeeAppCantLoginToAdminAccount =
+            "You do not have access to login to an admin account from an employee application";
+
+
 
 
     }

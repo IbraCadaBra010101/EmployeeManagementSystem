@@ -31,7 +31,7 @@ namespace EmployeeManagement
             switch (listOfEmployees.Count)
             {
                 case 0 when isAdmin:
-                    ControllerMenu();
+                    ControllerMenu(isAdmin);
                     break;
                 case 0 when !isAdmin:
                     PromptUser("List is empty, log in as admin or ask admin to create an account!");
@@ -56,7 +56,7 @@ namespace EmployeeManagement
                             }
                             foreach (var t in listOfEmployees.Where(t => $"{t.FirstName + t.LastName}" == userNameInput && t.PassWord == passWordInput))
                             {
-                                DetermineUserAccessLevel(t);
+                                DetermineUserAccessLevel(t, isAdmin);
                                 run = false;
                             }
                             messageIndex++;
@@ -66,17 +66,21 @@ namespace EmployeeManagement
                     }
             }
         }
-        internal static void DetermineUserAccessLevel(Employee employee)
+        internal static void DetermineUserAccessLevel(Employee employee, bool isAdmin)
         {
-            if (employee.IsAdmin)
+            if (employee.IsAdmin && isAdmin || employee.IsAdmin == false && isAdmin)
             {
                 PromptUser(PromptConfirmLoggedInAsAdministrator);
-                ControllerMenu();
+                ControllerMenu(isAdmin);
             }
-            else if(employee.IsAdmin == false)
+            else if(employee.IsAdmin == false && isAdmin == false)
             {
                 PromptUser(PromptConfirmLoggedInAsEmployee);
                 PrintSelectionConfirmation(employee, EmployeeDetailsMessage);
+            }
+            else
+            {
+                PromptUser("You do not have access to login to an admin account from an employee application");
             }
         }
       internal static string GenerateNewIdNumber()
