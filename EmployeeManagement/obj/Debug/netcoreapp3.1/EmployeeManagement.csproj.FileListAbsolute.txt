@@ -16,4 +16,3 @@ C:\Users\46790\source\repos\EmployeeManagementLibrary\EmployeeManagement\obj\Deb
 C:\Users\46790\source\repos\EmployeeManagementLibrary\EmployeeManagement\obj\Debug\netcoreapp3.1\EmployeeManagement.csproj.CoreCompileInputs.cache
 C:\Users\46790\source\repos\EmployeeManagementLibrary\EmployeeManagement\obj\Debug\netcoreapp3.1\EmployeeManagement.dll
 C:\Users\46790\source\repos\EmployeeManagementLibrary\EmployeeManagement\obj\Debug\netcoreapp3.1\EmployeeManagement.pdb
-C:\Users\46790\source\repos\EmployeeManagementLibrary\EmployeeManagement\bin\Debug\netcoreapp3.1\employees.json

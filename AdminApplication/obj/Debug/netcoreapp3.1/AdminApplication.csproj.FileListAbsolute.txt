@@ -15,4 +15,3 @@ C:\Users\46790\source\repos\EmployeeManagementLibrary\AdminApplication\obj\Debug
 C:\Users\46790\source\repos\EmployeeManagementLibrary\AdminApplication\obj\Debug\netcoreapp3.1\AdminApplication.dll
 C:\Users\46790\source\repos\EmployeeManagementLibrary\AdminApplication\obj\Debug\netcoreapp3.1\AdminApplication.pdb
 C:\Users\46790\source\repos\EmployeeManagementLibrary\AdminApplication\obj\Debug\netcoreapp3.1\AdminApplication.genruntimeconfig.cache
-C:\Users\46790\source\repos\EmployeeManagementLibrary\AdminApplication\bin\Debug\netcoreapp3.1\employees.json

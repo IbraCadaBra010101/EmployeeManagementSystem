@@ -1,0 +1,11 @@
+[
+  {
+    "IdNumber": "00000000-0000-0000-0000-000000000000",
+    "FirstName": "a",
+    "LastName": "a",
+    "IsAdmin": false,
+    "PassWord": "0055",
+    "UserName": "aa",
+    "Address": "fake  street 123"
+  }
+]

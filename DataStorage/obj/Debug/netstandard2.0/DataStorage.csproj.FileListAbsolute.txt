@@ -1,0 +1,9 @@
+C:\Users\46790\source\repos\EmployeeManagementLibrary\DataStorage\bin\Debug\netstandard2.0\DataStorage.deps.json
+C:\Users\46790\source\repos\EmployeeManagementLibrary\DataStorage\bin\Debug\netstandard2.0\DataStorage.dll
+C:\Users\46790\source\repos\EmployeeManagementLibrary\DataStorage\bin\Debug\netstandard2.0\DataStorage.pdb
+C:\Users\46790\source\repos\EmployeeManagementLibrary\DataStorage\obj\Debug\netstandard2.0\DataStorage.csprojAssemblyReference.cache
+C:\Users\46790\source\repos\EmployeeManagementLibrary\DataStorage\obj\Debug\netstandard2.0\DataStorage.AssemblyInfoInputs.cache
+C:\Users\46790\source\repos\EmployeeManagementLibrary\DataStorage\obj\Debug\netstandard2.0\DataStorage.AssemblyInfo.cs
+C:\Users\46790\source\repos\EmployeeManagementLibrary\DataStorage\obj\Debug\netstandard2.0\DataStorage.csproj.CoreCompileInputs.cache
+C:\Users\46790\source\repos\EmployeeManagementLibrary\DataStorage\obj\Debug\netstandard2.0\DataStorage.dll
+C:\Users\46790\source\repos\EmployeeManagementLibrary\DataStorage\obj\Debug\netstandard2.0\DataStorage.pdb
