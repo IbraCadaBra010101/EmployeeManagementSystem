@@ -30,13 +30,13 @@ namespace EmployeeManagement
         internal static string ValidateText( string message, string errorMessage)
         {
             PromptUser(message);
-            var taskDescriptionInput = UserInput();
-            while (string.IsNullOrWhiteSpace(taskDescriptionInput) || int.TryParse(taskDescriptionInput, out _))
+            var employeeDetailText = UserInput();
+            while (string.IsNullOrWhiteSpace(employeeDetailText) || int.TryParse(employeeDetailText, out _))
             {
                 PromptUser(errorMessage);
-                taskDescriptionInput = UserInput();
+                employeeDetailText = UserInput();
             }
-            return taskDescriptionInput;
+            return employeeDetailText;
         }
         internal static int ControllerMenuInputValidateNumber(string operationInput)
         {
