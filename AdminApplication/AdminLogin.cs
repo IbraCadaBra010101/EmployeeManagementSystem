@@ -1,16 +1,13 @@
 ﻿using System;
 using System.IO;
 using EmployeeManagement;
-
-namespace LimitedEmployeeApplication
+namespace AdminApplication
 {
-    internal class Employee
+    internal class AdminLogin
     {
         private static void Main()
         {
-            Login.ValidatePassword(false);
+            Login.ValidatePassword(true);
         }
     }
 }
-
-

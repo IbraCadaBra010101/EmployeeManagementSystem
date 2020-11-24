@@ -7,7 +7,7 @@ namespace EmployeeManagement
 {
     public static class CrudOperationsController
     {
-        public static void ControllerMenu(string path)
+        public static void ControllerMenu()
         {
             PromptUser(PromptMenuOptions);
             var chooseOperationInput = UserInput();
@@ -17,16 +17,16 @@ namespace EmployeeManagement
                 switch (validNumberOperationInput)
                 {
                     case 1:
-                        Add(path);
+                        Add();
                         break;
                     case 2:
-                        Edit(path);
+                        Edit();
                         break;
                     case 3:
-                        Delete(path);
+                        Delete();
                         break;
                     case 4:
-                        Print(path);
+                        Print();
                         break;
                     case 5:
                         ClearConsole();

@@ -15,3 +15,4 @@ C:\Users\46790\source\repos\EmployeeManagementLibrary\LimitedEmployee\obj\Debug\
 C:\Users\46790\source\repos\EmployeeManagementLibrary\LimitedEmployee\obj\Debug\netcoreapp3.1\LimitedEmployeeApplication.dll
 C:\Users\46790\source\repos\EmployeeManagementLibrary\LimitedEmployee\obj\Debug\netcoreapp3.1\LimitedEmployeeApplication.pdb
 C:\Users\46790\source\repos\EmployeeManagementLibrary\LimitedEmployee\obj\Debug\netcoreapp3.1\LimitedEmployeeApplication.genruntimeconfig.cache
+C:\Users\46790\source\repos\EmployeeManagementLibrary\LimitedEmployee\bin\Debug\netcoreapp3.1\employees.json

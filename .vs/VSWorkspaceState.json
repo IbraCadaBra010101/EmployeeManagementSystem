@@ -1,13 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\EmployeeApplication\\bin",
-    "\\EmployeeApplication\\bin\\Debug",
-    "\\EmployeeApplication\\bin\\Debug\\netcoreapp3.1",
-    "\\EmployeeManagement",
-    "\\EmployeeManagement\\bin",
-    "\\EmployeeManagement\\bin\\Debug",
-    "\\EmployeeManagement\\bin\\Debug\\netcoreapp3.1"
+    "\\LimitedEmployee",
+    "\\LimitedEmployee\\bin",
+    "\\LimitedEmployee\\bin\\Debug",
+    "\\LimitedEmployee\\bin\\Debug\\netcoreapp3.1"
   ],
+  "SelectedNode": "\\LimitedEmployee\\bin\\Debug\\netcoreapp3.1\\NonAdminEmployeeData.json",
   "PreviewInSolutionExplorer": false
 }

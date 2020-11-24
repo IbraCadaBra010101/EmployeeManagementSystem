@@ -2,6 +2,8 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using static EmployeeManagement.CrudOperationsController;
@@ -13,7 +15,7 @@ namespace EmployeeManagement
 {
     public static class Login
     {
-     
+
 
         internal static string GenerateNumericPassword()
         {
@@ -28,25 +30,26 @@ namespace EmployeeManagement
             }
             return stringBuilder.ToString();
         }
-        public static void ValidatePassword(string path, bool nonAdmin)
-        {
-            var listOfEmployees = ReadData(path);
+        public static void ValidatePassword(bool isAdmin)
+        { 
+            
+            var listOfEmployees = ReadData();
             var run = true;
             var messageIndex = 0;
-            if (listOfEmployees.Count < 1 && nonAdmin ==  false)
+            if (listOfEmployees.Count == 0 && isAdmin )
             {
-                ControllerMenu(path);
+                ControllerMenu();
             }
-            if (listOfEmployees.Count < 1 && nonAdmin)
+            else if(listOfEmployees.Count == 0 && !isAdmin)
             {
-               PromptUser("You are an employee with no admin priviliges, ask the admin to  create an account for you");
+                PromptUser("List is empty, log in as admin or ask admin to create an account!");
             }
             else
             {
                 while (run)
                 {
 
-                    if (messageIndex >  0)
+                    if (messageIndex > 0)
                     {
                         PromptUser(WrongLogin);
                     }
@@ -57,29 +60,25 @@ namespace EmployeeManagement
                     var passWordInput = Console.ReadLine();
                     if (userNameInput == "quit" || passWordInput == "quit")
                     {
-                         run = false;
+                        run = false;
                     }
-                    for (int index = 0; index < listOfEmployees.Count; index++)
+                    foreach (var t in listOfEmployees.Where(t => $"{t.FirstName + t.LastName}" == userNameInput && t.PassWord == passWordInput))
                     {
-                        if ($"{listOfEmployees[index].FirstName + listOfEmployees[index].LastName}" == userNameInput
-                            && listOfEmployees[index].PassWord == passWordInput)
-                        {
-                            DetermineUserAccessLevel(listOfEmployees[index], path, nonAdmin);
-                            run = false;
-                        }
+                        DetermineUserAccessLevel(t);
+                        run = false;
                     }
-
+                     
                     messageIndex++;
                 }
-       
+
             }
         }
-        internal static void DetermineUserAccessLevel(Employee employee, string path, bool nonAdmin)
+        internal static void DetermineUserAccessLevel(Employee employee)
         {
-            if (employee.IsAdmin && nonAdmin == false)
+            if (employee.IsAdmin)
             {
                 PromptUser(PromptConfirmLoggedInAsAdministrator);
-                ControllerMenu(path);
+                ControllerMenu();
             }
             else
             {

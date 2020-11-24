@@ -1,12 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using Newtonsoft.Json;
-
 namespace EmployeeManagement
 {
     public static class EmployeeDataManagement
     {
-        public static void WriteDataJson(List<Employee> listOfEmployees, string path)
+        
+        // may need to go one directory higher for solution directory
+        private const string path = "employees.json";
+
+        public static void WriteDataJson(List<Employee> listOfEmployees)
         {
             var isFileNotExists = !File.Exists(path);
             if (isFileNotExists)
@@ -17,8 +22,8 @@ namespace EmployeeManagement
                 File.ReadAllText(path)) == null;
             if (isJsonFileEmpty)
             {
-                var todoJson = JsonConvert.SerializeObject(listOfEmployees, Formatting.Indented);
-                File.WriteAllText(path, todoJson);
+                var employeeJson = JsonConvert.SerializeObject(listOfEmployees, Formatting.Indented);
+                File.WriteAllText(path, employeeJson);
             }
             else
             {
@@ -28,13 +33,14 @@ namespace EmployeeManagement
                 File.WriteAllText(path, todoJson);
             }
         }
-        public static void OverWriteCurrentDataJson(List<Employee> listOfEmployees, string path)
-        { 
+        public static void OverWriteCurrentDataJson(List<Employee> listOfEmployees)
+        {
             var listOfEmployeesJson = JsonConvert.SerializeObject(listOfEmployees, Formatting.Indented);
             File.WriteAllText(path, listOfEmployeesJson);
         }
-        public static List<Employee> ReadData(string path)
+        public static List<Employee> ReadData()
         {
+
             var currentListOfEmployees = JsonConvert.DeserializeObject<List<Employee>>(File.ReadAllText(path));
             return currentListOfEmployees;
         }
