@@ -6,7 +6,6 @@ namespace EmployeeManagement
     public static class EmployeeDataManagement
     {
         public static readonly string Path = System.IO.Path.GetFullPath(@"..\..\..\..\DataStorage\employees.json");
-
         public static void WriteDataJson(List<Employee> listOfEmployees)
         {
             var isFileNotExists = !File.Exists(Path);

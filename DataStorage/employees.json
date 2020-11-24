@@ -1,11 +1,20 @@
 [
   {
-    "IdNumber": "00000000-0000-0000-0000-000000000000",
-    "FirstName": "a",
-    "LastName": "a",
+    "IdNumber": "08ab980a-d433-4c69-b1f2-4e6b2baf6543",
+    "FirstName": "AlanShearer",
+    "LastName": "A",
     "IsAdmin": false,
-    "PassWord": "0055",
-    "UserName": "aa",
-    "Address": "fake  street 123"
+    "PassWord": "2538",
+    "UserName": "AlanShearerA",
+    "Address": "england 123"
+  },
+  {
+    "IdNumber": "c4c5d7a0-c1d1-4840-a010-9af95477c9cd",
+    "FirstName": "Admin",
+    "LastName": "Account",
+    "IsAdmin": true,
+    "PassWord": "0000",
+    "UserName": "AdminAccount",
+    "Address": "ddd 123"
   }
 ]

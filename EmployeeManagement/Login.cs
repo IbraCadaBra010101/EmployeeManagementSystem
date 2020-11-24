@@ -59,7 +59,6 @@ namespace EmployeeManagement
                                 DetermineUserAccessLevel(t);
                                 run = false;
                             }
-
                             messageIndex++;
                         }
 
@@ -80,11 +79,10 @@ namespace EmployeeManagement
                 PrintSelectionConfirmation(employee, EmployeeDetailsMessage);
             }
         }
-        internal static string GenerateNewIdNumber(string message)
+      internal static string GenerateNewIdNumber()
         {
-            var guidObj = new Guid();
-            var idNumber = guidObj.ToString();
-            return idNumber;
+            var guid = Guid.NewGuid();
+            return guid.ToString();
         }
     }
 }

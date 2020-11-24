@@ -7,7 +7,8 @@ namespace AdminApplication
     {
         private static void Main()
         {
-            Login.ValidatePassword(true);
+            Login.ValidatePassword(true);  
+        
         }
     }
 }

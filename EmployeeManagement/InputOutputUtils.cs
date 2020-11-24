@@ -14,8 +14,8 @@ namespace EmployeeManagement
             const string frameLowerString = "╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝";
             PromptUser(appTitle);
             foreach (var todoContent in listOEmployees.Select((employee, index) =>
-                $"First name: {employee.FirstName} Last name: {employee.LastName} Address: {employee.Address}" +
-                $" ID: {employee.IdNumber}"))
+                $"Employee number: {index + 1} First name: {employee.FirstName} Last name: {employee.LastName} Address: {employee.Address}" +
+                $" ID: {employee.IdNumber} is administrator:{employee.IsAdmin}"))
             {
                 PromptUser(frameUpperString);
                 PromptUser(todoContent);

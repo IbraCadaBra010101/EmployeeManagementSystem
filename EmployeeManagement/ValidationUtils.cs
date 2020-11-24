@@ -9,9 +9,9 @@ namespace EmployeeManagement
         internal static int ValidateDetailNumber()
         {
             var userInputForDetail = UserInput();
-            while (string.IsNullOrWhiteSpace(userInputForDetail) || !int.TryParse(userInputForDetail, out _) || int.Parse(userInputForDetail) < 1 || int.Parse(userInputForDetail) > 4)
+            while (string.IsNullOrWhiteSpace(userInputForDetail) || !int.TryParse(userInputForDetail, out _) || int.Parse(userInputForDetail) < 1 || int.Parse(userInputForDetail) > 5)
             {
-                PromptUser(PromptWhichDetailInTodoToEditError);
+                PromptUser(PromptWhichDetailInEmployeeToEditError);
                 userInputForDetail = UserInput();
             }
             return int.Parse(userInputForDetail);

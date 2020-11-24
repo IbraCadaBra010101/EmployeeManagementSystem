@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using static EmployeeManagement.EmployeeDataManagement;
 using static EmployeeManagement.InputOutputUtils;
 using static EmployeeManagement.ValidationUtils;
@@ -23,27 +24,35 @@ namespace EmployeeManagement
             {
                 Print();
                 var editThisEmployee = ChooseWhichEmployee(listOfEmployees, PromptEditEmployee);
-                PrintSelectionConfirmation(editThisEmployee, PromptConfirmChosenEditTask);
-                PromptUser(PromptWhichDetailInEmployeeToEdit);
-                var validDetailNumber = ValidateDetailNumber();
-                switch (validDetailNumber)
+                if (editThisEmployee.IdNumber != ID_NUMBER_ACCOUNT_MUST_ALWAYS_EXIST)
                 {
-                    case 1:
-                        editThisEmployee.FirstName = ValidateText(PromptNewFirstName, PromptNewFirstNameError);
-                        break;
-                    case 2:
-                        editThisEmployee.LastName = ValidateText(PromptNewLastName, PromptNewLastNameError);
-                        break;
-                    case 3:
-                        editThisEmployee.Address = ValidateText(PromptNewAddress, PromptNewAddressError);
-                        break;
-                    case 4:
-                        editThisEmployee.IsAdmin = ValidateCompleteIsBool(PromptMakeAdmin, PromptMakeAdminError);
-                        break;
-                    case 5:
-                        editThisEmployee.IdNumber = GenerateNewIdNumber(PromptNewIdNumberCreated);
-                        break;
+                    PrintSelectionConfirmation(editThisEmployee, PromptConfirmChosenEditTask);
+                    PromptUser(PromptWhichDetailInEmployeeToEdit);
+                    var validDetailNumber = ValidateDetailNumber();
+                    switch (validDetailNumber)
+                    {
+                        case 1:
+                            editThisEmployee.FirstName = ValidateText(PromptNewFirstName, PromptNewFirstNameError);
+                            break;
+                        case 2:
+                            editThisEmployee.LastName = ValidateText(PromptNewLastName, PromptNewLastNameError);
+                            break;
+                        case 3:
+                            editThisEmployee.Address = ValidateText(PromptNewAddress, PromptNewAddressError);
+                            break;
+                        case 4:
+                            editThisEmployee.IsAdmin = ValidateCompleteIsBool(PromptMakeAdmin, PromptMakeAdminError);
+                            break;
+                        case 5:
+                            editThisEmployee.IdNumber = GenerateNewIdNumber();
+                            break;
+                    }
                 }
+                else
+                {
+                    PromptUser(PromptInitialAccountMustNotBeEdited);
+                }
+
                 OverWriteCurrentDataJson(listOfEmployees);
                 Print();
                 var stopOrRepeat = RepeatOneMoreTime(PromptEditAnotherEmployee,
@@ -65,16 +74,24 @@ namespace EmployeeManagement
                 while (deleteMoreEmployees && listOfEmployees.Count > 0)
                 {
                     var deleteThisEmployee = ChooseWhichEmployee(listOfEmployees, PromptDeleteEmployee);
-                    listOfEmployees.Remove(deleteThisEmployee);
-                    ClearConsole();
-                    OverWriteCurrentDataJson(listOfEmployees);
-                    Print();
-                    PrintSelectionConfirmation(deleteThisEmployee, PromptWasDeleted);
-                    if (listOfEmployees.Count <= 0)
+                    if (deleteThisEmployee.IdNumber == ID_NUMBER_ACCOUNT_MUST_ALWAYS_EXIST)
                     {
-                        PromptUser(PromptAllDeleted);
-                        break;
+                        PromptUser(PromptOnlyAdminAccountCanNotBeDeleted);
                     }
+                    else
+                    {
+                        listOfEmployees.Remove(deleteThisEmployee);
+                        ClearConsole();
+                        OverWriteCurrentDataJson(listOfEmployees);
+                        Print();
+                        PrintSelectionConfirmation(deleteThisEmployee, PromptWasDeleted);
+                        if (listOfEmployees.Count <= 0)
+                        {
+                            PromptUser(PromptAllDeleted);
+                            break;
+                        }
+                    }
+
                     var stopOrRepeat = RepeatOneMoreTime(PromptDeleteAnotherTodo,
                         PromptRepeatErrorMessage, Yes, No);
                     deleteMoreEmployees = stopOrRepeat;
@@ -84,10 +101,10 @@ namespace EmployeeManagement
         public static void Add()
         {
             var addMoreEmployees = true;
-            var listOfEmployees = new List<Employee>(); 
+            var listOfEmployees = new List<Employee>();
             while (addMoreEmployees)
             {
-                var idNumber = GenerateNewIdNumber(PromptNewIdNumberCreated);
+                var idNumber = GenerateNewIdNumber();
                 var firstName = ValidateText(PromptNewFirstName, PromptNewFirstNameError);
                 var lastName = ValidateText(PromptNewLastName, PromptNewLastNameError);
                 var address = ValidateText(PromptNewAddress, PromptNewAddressError);

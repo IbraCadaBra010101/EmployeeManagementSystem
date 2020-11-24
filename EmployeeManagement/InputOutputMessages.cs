@@ -37,8 +37,8 @@
 
         public const string PromptEditEmployee = "Enter the number of employee you would like to edit!";
         public const string PromptEditAnotherEmployee = "Would you like to edit another employee? Answer with yes or no!";
-        public const string PromptWhichDetailInEmployeeToEdit = "Enter the number for the detail you would like to edit for this employee\n 1. First name 2. Last name 3. Address 4. ID number";
-        public const string PromptWhichDetailInTodoToEditError = "Error: Enter a valid number for the detail you would like to edit!\n1. Task description 2. Urgency rating 3. Completed";
+        public const string PromptWhichDetailInEmployeeToEdit = "Enter the number for the detail you would like to edit for this employee\n 1. First name 2. Last name 3. Address 4. Make admin 5. Generate new ID number";
+        public const string PromptWhichDetailInEmployeeToEditError = "Error: Enter a valid number for the detail you would like to edit!\n1. Task description 2. Urgency rating 3. Completed";
 
         public const string PromptDetermineIfAdminInputError = "Error\nEnter true to make this user admin or false to make employee!";
         // which detail to edit 
@@ -58,5 +58,15 @@
 
         public const string PromptConfirmLoggedInAsAdministrator = "Logged in as Administrator!";
 
+        public const string PromptInitialAccountMustNotBeEdited =
+            "This is the initial admin account and can not be removed or edited for safety purposes!";
+        public const string PromptOnlyAdminAccountCanNotBeDeleted =
+            "This accounts admin privileges can not be removed i.e set to false.\nIt's the only admin account left." +
+            "\nThere must be at least one admin account to manage the application.";
+
+        public const string ID_NUMBER_ACCOUNT_MUST_ALWAYS_EXIST = "c4c5d7a0-c1d1-4840-a010-9af95477c9cd";
+      
+
+
     }
-}
+} 
